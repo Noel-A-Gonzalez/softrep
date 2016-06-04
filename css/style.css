@@ -1,0 +1,21 @@
+#footer {
+	padding: 10px;
+	text-align:center;
+}
+#menu{
+	text-align: center;
+}
+
+body{
+	background: #cde0da ;
+  	font-size: 150%; }
+}
+.formato {
+  font-size:12px;
+  background-color:#ffffcc;
+  border-width:1px;
+  border-style:dotted;
+  border-color:#ffaa00;
+
+  padding:20px;
+}

@@ -1,0 +1,80 @@
+<?php 
+  session_start();
+  require_once('conexion.php');
+ ?>
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inicio</title>
+    <!-- CSS de Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet" media="screen">
+     <link href="css/font-awesome.min.css" rel="stylesheet">
+  </head>
+
+  <nav class="navbar navbar-default" role="navigation">
+    <div id="menu">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Desplegar navegación</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        
+        <?php 
+        $result=mysqli_query($con,"SELECT * FROM usuarios WHERE dni='$_SESSION[username]'");
+          if ($row = mysqli_fetch_row($result)){ 
+            
+            $tipo_usuario=$row[6];
+
+            if ($tipo_usuario == 1) {
+                    echo "<a class='navbar-brand' href='inicio_admin.php'><img src='images/logo.png' style='margin-top: -12px'><a class='navbar-brand' href='inicio_admin.php'></a>
+                    </a>";
+                  }          
+                  elseif ($tipo_usuario == 2) {
+                     echo "<a class='navbar-brand' href='inicio_emp.php'><img src='images/logo.png' style='margin-top: -12px'>
+                     <a class='navbar-brand' href='inicio_emp.php'></a>
+                     </a>";
+
+                  } 
+                  else {
+                     echo "<a class='navbar-brand' href='inicio.php'><img src='images/logo.png' style='margin-top: -12px'> <a class='navbar-brand' href='inicio.php'></a>
+                     </a>";
+                        
+                  }            
+          }
+  
+        ?>
+
+          
+      </div>
+
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-user"></span><strong> <?php echo $_SESSION['user'];?>
+              </strong><b class="caret"></b>
+              </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="perfil.php"><span class="glyphicon glyphicon-edit"></span> Actualizar datos</a></li>
+                    <li><a href="cambiar_pass.php"><i class="fa fa-key fa-lg"></i> Cambiar contraseña</a></li>
+                    <li class="divider"></li>
+                    <li><a href="cerrar_session.php"><span class="glyphicon glyphicon-off"></span> Cerrar sesion</a></li>
+                  </ul>
+            </li>
+            <li><a href="doc/manual_softrep.pdf" target="_blank">
+              <big><span class="glyphicon glyphicon-question-sign "></span></big></a>             
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</html> 
