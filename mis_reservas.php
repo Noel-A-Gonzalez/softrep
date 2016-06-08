@@ -37,9 +37,9 @@ require_once('conexion.php');
        
             <div class="panel-body">    
               <ul class="nav nav-tabs nav-justified">
-                <li class="active"><a href="consultar_destinos.php"> <i style="margin-right: 6px" class="fa fa-bus fa-lg"></i> <big><strong>  Consultar Destino</strong></big> 
+                <li><a href="consultar_destinos.php"> <i style="margin-right: 6px" class="fa fa-bus fa-lg"></i> <big><strong>  Consultar Destino</strong></big> 
 </a></li>
-                <li><a href="mis_reservas.php"> <i style="margin-right: 6px" class="fa fa-list-alt fa-lg"></i><big><strong>  Mis Reservas </strong></big>  
+                <li class="active"><a href="mis_reservas.php"> <i style="margin-right: 6px" class="fa fa-list-alt fa-lg"></i><big><strong>  Mis Reservas </strong></big>  
  </a></li>
               </ul>
 
